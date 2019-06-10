@@ -85,7 +85,7 @@ id_of_parent  is_Leaf? observed_variable (m components) #is_leaf is represented 
 ```
 
 ## Source codes
-The following two codes are core of LEM.
+The following two codes are the core of LEM.
 - Tree.cpp: Class for discrete latent-variable tree (includeing E-step of LEM).
 - TreeLDS.cpp: Class for continous latent-variable tree (including E-step and M-step of LEM).
 
