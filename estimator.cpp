@@ -69,7 +69,7 @@ void tree1EstimatorCore(std::vector<Tree*>& forest, std::vector<std::vector<doub
 
 		//M-step
 		//for lambdas
-		double coef0, coef1, sumtau0, sumtau1; //derivative is of the form coef*(1/lambda) - sumtau = 0. suffix indicates the type
+		double coef0, coef1, sumtau0, sumtau1; //derivative is of the form coef*(1/lambda) - sumtau = 0. suffix indicates the state
 		coef0 = coef1 = sumtau0 = sumtau1 = 0.0;
 		for (auto itr = forest.begin(); itr != forest.end(); itr++) {//sum up for all trees
 																	 //for sum tau

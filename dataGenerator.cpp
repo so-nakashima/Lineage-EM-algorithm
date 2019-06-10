@@ -342,17 +342,3 @@ void generateOneLDSTree(
 		}
 	}
 }
-//
-//void generateLDSForest() {
-//	int no = 1;
-//	std::string filename = ".\\LDS1\\tree2_";
-//
-//
-//	for (int i = 0; i != no; i++) {
-//		int current = 0;
-//		std::ofstream out(filename + std::to_string(i) + ".txt");
-//		std::ofstream trueState(filename + std::to_string(i) + "_true.txt");
-//		generateOneLDSTree(n, m, current, A, C, sigmaW, sigmaV, generation, -1, initState, out, trueState);
-//	}
-//
-//}

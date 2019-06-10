@@ -1,13 +1,12 @@
-#Lineage EM algorithm
-====
+# Lineage EM algorithm (LEM)
 
-##Overview
-A tool for latent-variable estimation from cell lineage trees. Implimentation of [https://www.biorxiv.org/content/10.1101/488981v1].
+## Overview
+A tool for the latent-variable estimation from cell lineage trees. Implimentation of [https://doi.org/10.1101/488981].
 
 
 ## Demo
-```
-//estimate continous-latent-variable
+```cpp
+//estimate continous latent-variable from lineage tree
 void EstimatorLDS(std::string experiment, std::string resultFile, int n) { 
 	//hyperparameters for the estimation
 	int seekNo = 1000; //# of initial values
@@ -66,28 +65,31 @@ C++14, Boost C++ library 1.64.0, and Eigen 3.3.3.
 
 ## Usage
 The survivorship bias is NOT corrected in this program.
-You should correct it manually or by combining other programs.
+You should correct it manually or by combining this program with other programs.
 
 ## Format of input files for trees
+discrete latent-variable
 ```
 #first line
-Number_of_nodes Number_of_types
-#iteration
-parent 0 survival_time #parents must appear in the upperline. Type is a 0-origin integer. ID = # of line (0-origin).
-parent 1 type survival_time #for leaf nodes
+Number_of_nodes Number_of_states
+#iteration of one of the following two lines.
+id_of_parent 0 division_time #parents must appear in the upper line. States are represented by 0-origin integers. ID of the cell = # of line (0-origin).
+id_of_parent 1 state division_time #for leaf nodes whose state is known 
+#let state = -1 for unkonwn states
+```
 
-type = -1 <- unkonwn type
-
-
-Format of input file for LDS
-
-iteration of the following row entry:
-parent  isLeaf observed (m components)
+continuous latent-variable
+```
+#iteration of the following row entry:
+id_of_parent  is_Leaf? observed_variable (m components) #is_leaf is represented by boolean (0 or 1). observed_variable is typically division time (m = 1)
 ```
 
 ## Source codes
+The following two codes are core of LEM.
 - Tree.cpp: Class for discrete latent-variable tree (includeing E-step of LEM).
 - TreeLDS.cpp: Class for continous latent-variable tree (including E-step and M-step of LEM).
+
+Other codes.
 - estimator.cpp: Implementation of the LEM for discrete latent-variable for spefic models.
 - execute-estimator.cpp: examples for LEM for discrete latent-variables.
 - estimatorLDS.cpp: LEM for continous latent-variables.
