@@ -1,0 +1,21 @@
+#pragma once
+void inferenceTest();
+void pairInferenceTest();
+void gammaEstimator(double x, double lnx, double& alpha, double& beta);
+void temporalTest();
+void LDSinferenceTest();
+void LDSestimateTest();
+void carpetBombingTest();
+void carpetBombingForestTest();
+void WakamotoEstimatorLDS(std::string experiment, std::string resultFile, int n);
+void CheckEstimatedResult(std::string experiment);
+void checkDistributions();
+void checkDistributionsSteady(std::string experiment);
+void CheckSmoothedPath(std::string experiment);
+void matrixTest();
+void WakamotoEstimatorLDSwithMeanV(std::string experiment, std::string resultFile, int n);
+void generateLDSForest();
+void carpetBombingForestTestForGeneratedData(int n, int m);
+void AICselctions(int iteration, int maxDim);
+void WakamotoEstimatorLDS_Bootstrap(std::string experiment, std::string resultFile);
+void AICselctionsBootStrap(int iteration, std::string experiment, int maxDim);
