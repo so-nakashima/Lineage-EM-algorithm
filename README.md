@@ -7,6 +7,10 @@ A tool for the latent-variable estimation from cell lineage trees. Implimentatio
 ## Demo
 ```cpp
 //estimate continous latent-variable from lineage tree
+using namespace Eigen;
+typedef Eigen::MatrixXd Mat;
+typedef Eigen::VectorXd Vec;
+
 void EstimatorLDS(std::string experiment, std::string resultFile, int n) { 
 	//hyperparameters for the estimation
 	int seekNo = 1000; //# of initial values
